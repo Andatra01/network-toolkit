@@ -16,3 +16,9 @@ echo 'список открытых портов' >> "$LOGFILE"
 ss -tulpn >> "$LOGFILE"
 echo 'маршрут по умолчанию' >> "$LOGFILE"
 ip route get 8.8.8.8 >> "$LOGFILE"
+echo 'использование диска' >> "$LOGFILE"
+df -h / >> "$LOGFILE"
+DISK=$(df / | awk 'NR==2 {print $5}' | tr -d '%')
+if [ "$DISK" -gt 80 ]; then
+    echo "ALERT: диск заполнен на ${DISK}%" >> "$LOGFILE"
+fi
