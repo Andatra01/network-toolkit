@@ -1,2 +1,23 @@
-log.txt
+# Секреты
+.env
+*.key
+*.pem
+secrets.yml
+
+# Временные файлы
 *.log
+*.tmp
+*.bak
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+
+# Node
+node_modules/
